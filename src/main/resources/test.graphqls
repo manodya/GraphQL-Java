@@ -1,0 +1,39 @@
+schema {
+ query : Query
+}
+type Query{
+  allPriceEvents : [PriceEvent]
+  singlePriceEvent(eventId : Int) : PriceEvent
+  allOrders : [Order]
+  getOrder(orderId : Int): Order
+}
+
+type PriceEvent{
+    eventId : Int
+    symbol : String
+    timeStamp : String
+    lastTradePrice : String
+    volume : String
+
+}
+
+type Order{
+     orderId : Int
+     symbol : String
+     qty : String
+     side : String
+     type : String
+     price : String
+     status : String
+     executionList : [Execution]
+}
+
+type Execution{
+    executionId : Int
+    orderId : Int
+    qty : String
+    price :String
+    timeStamp :String
+    filledQty : String
+    avgPrice : String
+}

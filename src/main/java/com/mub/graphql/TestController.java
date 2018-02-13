@@ -84,9 +84,10 @@ public class TestController {
     @RequestMapping(value = "/inquiry/", method = {RequestMethod.POST}, headers = {"Content-type=application/json"})
     @ResponseBody
     public Object processRESTRequest(@RequestBody String query) {
-        System.out.println("Query :" + query);
+        System.out.println("###Query :" + query);
         ExecutionResult result = graphQL.execute(query);
         System.out.println(" @@@@@@@@@@" +result.getErrors());
+        System.out.println("###Response :" + result.getData());
         return result.getData();
     }
 
